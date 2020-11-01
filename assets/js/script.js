@@ -124,9 +124,25 @@ function getWeather(desired) {
                     }
                     var dateStr = cityObj.date;
                     var trimmedDate = dateStr.substring(0, 10);
-                    var weatherIco = `https:///openweathermap.org/img/w/${cityObj.icon}.png`;
-                    createForecastCard(trimmedDate, weatherIco, cityObj.temp, cityObj.humidity);
+                    var weatherIcon = `https:///openweathermap.org/img/w/${cityObj.icon}.png`;
+                    createForecastCard(trimmedDate, weatherIcon, cityObj.temp, cityObj.humidity);
                 }
             })
     }
+}
+
+function createForecastCard(date, icon, temp, humidity) {
+
+    var fiveDayCardEl = $("<div>").attr("class", "five-day-card");
+    var cardDate = $("<h3>").attr("class", card-text);
+    var cardIcon = $("<img>").attr("class", weatherIcon);
+    var cardTemp = $("<p>").attr("class", "card-text");
+    var cardHumidity = $("<p>").attr("class", "card-text");
+
+    cardRow.append(fiveDayCardEl);
+    cardDate.text(date);
+    cardIcon.attr("src", icon);
+    cardTemp.text(`Temp: ${temp} °F`);
+    cardHumidity.text(`Humidity: ${humidity}%`);
+    fiveDayCardEl.append(cardDate, cardIcon, cardTemp, cardHumidity);
 }
