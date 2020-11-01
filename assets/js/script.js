@@ -22,3 +22,27 @@ if(JSON.parse(localStorage.getItem("searchHistory")) === null) {
     console.log("searchHistory loaded into searchHistoryArr");
     renderSearchHistory();
 }
+
+searchBtn.on("click", function(e) {
+    e.preventDefault();
+    if(searchInput.val()=== "") {
+        alert("Wrong city name!")
+        return;
+    }console.log("clicked")
+    getWeather(searchInput.val());
+});
+
+$(document).on("click",".historyEntry", function() {
+    var thisElement = $(this);
+    getWeather(thisElement.text());
+})
+
+function renderSearchHistory(cityName) {
+    searchHistoryEl.empty();
+    var searchHistoryArr = JSON.parse(localStorage.getItem("searchHistory"));
+    for(var i=0; i < searchHistoryArr.length; i++) {
+        var newListItem = $("<li>").attr("class", historyEntry);
+        newListItem.text(searchHistoryArr[i]);
+        searchHistoryEl.pretend(newListItem);
+    }
+}
