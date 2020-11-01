@@ -96,11 +96,37 @@ function getWeather(desired) {
                             var renderWeatherIcon = `https:///openweathermap.org/img/w/${cityObj.cityWeatherIconName}.png`;
                             renderWeatherData(cityObj.cityName, cityObj.cityTemp, cityObj.cityHumidity, cityObj.cityWindSpeed, renderedWeatherIcon, uvData.value);
                             renderSearchHistory(cityObj.cityName);
-                        }else{
+                        } else {
                             var renderWeatherIcon = `https:///openweathermap.org/img/w/${cityObj.cityWeatherIconName}.png`;
                             renderWeatherData(cityObj.cityName, cityObj.cityTemp, cityObj.cityHumidity, cityObj.cityWindSpeed, renderedWeatherIcon, uvData.value);
                         }
                     };
                 });
         });
-} ;
+
+
+    getFiveDayForecast();
+
+    function getFiveDayForecast() {
+        cardRow.empty();
+        var queryUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${desiredCity}&APPID=${apiKey}&units=imperial`;
+        $.ajax({
+            url: queryUrl,
+            method: "GET"
+        })
+            .then(function (fiveDayResponse) {
+                for (var i = 0; i != fiveDayResponse.list.length; i + 8) {
+                    var cityObj = {
+                        date: fiveDayResponse.list[i].dt_txt,
+                        icon: fiveDayResponse.list[i].weather[0].icon,
+                        temp: fiveDayResponse.list[i].main.temp,
+                        humidity: fiveDayResponse.list[i].main.humidity
+                    }
+                    var dateStr = cityObj.date;
+                    var trimmedDate = dateStr.substring(0, 10);
+                    var weatherIco = `https:///openweathermap.org/img/w/${cityObj.icon}.png`;
+                    createForecastCard(trimmedDate, weatherIco, cityObj.temp, cityObj.humidity);
+                }
+            })
+    }
+}
