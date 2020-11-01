@@ -46,3 +46,13 @@ function renderSearchHistory(cityName) {
         searchHistoryEl.pretend(newListItem);
     }
 }
+
+function renderWeatherData(cityName, cityTemp, cityHumidity, cityWindSpeed, cityWeatherIcon, uvVal) {
+    cityNameEl.text(cityName)
+    currentDateEl.text
+    tempEl.text(`Temperature: ${cityTemp}°F`);
+    humidityEl.text(`Humidity: ${cityHumidity}%`);
+    windSpeedEl.text(`Wind Speed: ${cityWindSpeed}MPH`);
+    uvIndexEl.text(`UV Indext: ${uvVal}`);
+    weatherIconEl.attr("src", cityWeatherIcon);
+}
