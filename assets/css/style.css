@@ -37,3 +37,48 @@ header, h1 {
     margin: 0;
     padding-top: 10px;
 }
+
+input {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    max-width: 640px;
+    height: 100%;
+}
+
+.search {
+    padding: 25px;
+    background-color: #f5f6fa;
+}
+
+.search h1 {
+    line-height: 30px;
+}
+
+.forecast {
+    margin-top: 25px;
+    border: solid 1px lightgrey;
+    margin-left: 5%;
+    min-width: 640px;
+    padding: 12px 15px 15px;
+    height: 40%;
+}
+
+.five-day-card {
+    margin-left: 58.5px;
+    width: 175px;
+    height: auto;
+    border-radius: 5px;
+    color: white;
+    font-size: larger;
+    background-color: #3498db;
+}
+
+.five-day-container .card-text {
+    margin-bottom: 15px;
+    padding: 10px 30px 5px 10px;
+}
