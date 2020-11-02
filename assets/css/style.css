@@ -1,6 +1,7 @@
-*{
+* {
     box-sizing: border-box;
 }
+
 body {
     height: 100%;
     margin: 0;
@@ -9,14 +10,19 @@ body {
 button{
     width: 70px;
     height: auto;
-    background-color:orange;
+    background-color: #ff9f43;
     border: none;
     border-radius: 5px;
-    transition: duration 0.4s; 
+    transition-duration: .4s;
 }
 
 button:hover {
     background-color: #feca57;
+}
+
+button:focus {
+    border: none;
+    outline-color: #b2bec3;
 }
 
 header {
@@ -26,22 +32,27 @@ header {
     margin-top: 0;
     text-align: center;
     font-size: xx-large;
-    background-color: gray;
+    background-color: #2f3640;
 }
 
 h1, h3, p, li {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
 }
 
-header, h1 {
+header h1 {
     margin: 0;
     padding-top: 10px;
 }
 
+html {
+    height: 100%;
+}
+
 input {
-    border: 1px solid lightgrey;
+    border: 1px solid #cecfd2;
     border-radius: 5px;
 }
+
 
 .container {
     display: flex;
@@ -61,11 +72,22 @@ input {
 
 .forecast {
     margin-top: 25px;
-    border: solid 1px lightgrey;
+    border: solid 1px #cecfd2;
     margin-left: 5%;
     min-width: 640px;
-    padding: 12px 15px 15px;
+    padding: 12px 15px 15px 15px;
     height: 40%;
+}
+
+
+ .five-day-container h1 {
+    margin-top: 25px;
+    margin-left: 5%;
+}
+
+.card-row {
+    display: flex;
+    flex-direction: row;
 }
 
 .five-day-card {
@@ -103,6 +125,7 @@ img {
     width: auto;
     height: auto;
 }
+
 input {
     height: 40px;
     width: auto;
@@ -123,6 +146,7 @@ li {
     font-size: larger;
     background-color: white;
     border: solid 1px #cecfd2;
+    border-radius: 0px 0px 0px 0px;
     padding: 12px 5px 12px 15px;
     list-style: none;
 }
@@ -131,7 +155,8 @@ li:last-child {
     height: 100%;
     font-size: larger;
     background-color: white;
-    border-radius: solid 1px #cecfd2;
+    border: solid 1px #cecfd2;
+    border-radius: 0px 0px 6px 6px;
     padding: 12px 5px 12px 15px;
     list-style: none;
 }
