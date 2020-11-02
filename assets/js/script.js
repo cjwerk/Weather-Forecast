@@ -1,8 +1,7 @@
 var apiKey = "60ce7466ebde7b0aecd67dbb4864a061";
 var searchBtn = $(".searchBtn");
 var searchInput = $(".searchInput");
-document.getElementsByClassName(".currentDate").innerHTML = Date();
-
+var desiredCity = searchInput.value;
 
 
 var cityNameEl = $(".cityName");
@@ -146,3 +145,9 @@ function createForecastCard(date, icon, temp, humidity) {
     cardHumidity.text(`Humidity: ${humidity}%`);
     fiveDayCardEl.append(cardDate, cardIcon, cardTemp, cardHumidity);
 }
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0');
+var yyyy = today.getFullYear();
+var today = mm + '/' + dd + '/' + yyyy;
